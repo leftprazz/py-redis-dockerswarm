@@ -1,0 +1,15 @@
+services:
+  web:
+    image: swarmtest:latest
+    ports:
+      - "8001:8001"
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
